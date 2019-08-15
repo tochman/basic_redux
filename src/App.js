@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Header } from 'semantic-ui-react'
+import { Container, Header, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 class App extends Component {
@@ -8,6 +8,14 @@ class App extends Component {
       <>
         <Container>
           <Header as="h1">{this.props.greeting}</Header>
+          <Button
+            primary
+            onClick = {() =>{
+              this.props.dispatch({type: 'CHANGE_GREETING', payload: 'New Hello World'})
+            }}
+          >
+            Click Me
+          </Button>
         </Container>
       </>
     )
