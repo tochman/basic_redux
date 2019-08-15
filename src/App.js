@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Header, Button, Input } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import { setGreeting, changeGreeting } from './state/actions/greetingActions'
 
 class App extends Component {
   render() {
@@ -31,16 +32,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    changeGreeting: () => {
-      dispatch({ type: 'CHANGE_GREETING' })
-    },
-
-    setGreeting: value => {
-      dispatch({ type: 'PROPOSE_GREETING', payload: value })
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, { setGreeting, changeGreeting })(App);
