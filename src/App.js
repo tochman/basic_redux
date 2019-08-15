@@ -1,16 +1,24 @@
-import React from 'react';
-import {Container, Header} from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Container, Header } from 'semantic-ui-react'
 
 
 
-function App() {
-  return (
-    <>
-      <Container>
-        <Header as="h1">Hello World</Header>
-      </Container>
-    </>
-  );
+class App extends Component {
+  state = {
+    greeting: 'Hello World from Component State'
+  }
+
+  render() {
+    return (
+      <>
+        <Container>
+          <Header as="h1">{this.state.greeting}</Header>
+        </Container>
+      </>
+    )
+  }
+
+
 }
 
 export default App;
