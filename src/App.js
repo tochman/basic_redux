@@ -4,21 +4,19 @@ import { connect } from 'react-redux'
 
 class App extends Component {
   render() {
+    let { setGreeting, changeGreeting } = this.props
+
     return (
       <>
         <Container>
           <Header as="h1">{this.props.greeting}</Header>
-          <Input 
-            placeholder = 'Type your greeting here'
-            onBlur={(event)=> {
-              this.props.dispatch({type: 'PROPOSE_GREETING', payload: event.target.value})
-            }}
+          <Input
+            placeholder='Type your greeting here'
+            onBlur={(event) => setGreeting(event.target.value)}
           />
           <Button
             primary
-            onClick = {() =>{
-              this.props.dispatch({type: 'CHANGE_GREETING'})
-            }}
+            onClick={() => changeGreeting()}
           >
             Click Me
           </Button>
@@ -33,4 +31,16 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    changeGreeting: () => {
+      dispatch({ type: 'CHANGE_GREETING' })
+    },
+
+    setGreeting: value => {
+      dispatch({ type: 'PROPOSE_GREETING', payload: value })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
