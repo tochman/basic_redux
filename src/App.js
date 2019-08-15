@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Header, Button } from 'semantic-ui-react'
+import { Container, Header, Button, Input } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 class App extends Component {
@@ -8,10 +8,16 @@ class App extends Component {
       <>
         <Container>
           <Header as="h1">{this.props.greeting}</Header>
+          <Input 
+            placeholder = 'Type your greeting here'
+            onBlur={(event)=> {
+              this.props.dispatch({type: 'PROPOSE_GREETING', payload: event.target.value})
+            }}
+          />
           <Button
             primary
             onClick = {() =>{
-              this.props.dispatch({type: 'CHANGE_GREETING', payload: 'New Hello World'})
+              this.props.dispatch({type: 'CHANGE_GREETING'})
             }}
           >
             Click Me
