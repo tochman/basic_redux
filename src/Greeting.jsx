@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import {  Header } from 'semantic-ui-react'
+import { Header } from 'semantic-ui-react'
 
 
 const Greeting = (props) => {
