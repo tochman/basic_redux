@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Header, Button, Input } from 'semantic-ui-react'
+import { Container, Button, Input } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { setGreeting, changeGreeting } from './state/actions/greetingActions'
+import Greeting from './Greeting'
+import * as greetingActions from './state/actions/greetingActions'
 
 class App extends Component {
   render() {
@@ -10,7 +11,7 @@ class App extends Component {
     return (
       <>
         <Container>
-          <Header as="h1">{this.props.greeting}</Header>
+          <Greeting />
           <Input
             placeholder='Type your greeting here'
             onBlur={(event) => setGreeting(event.target.value)}
@@ -26,10 +27,6 @@ class App extends Component {
     )
   }
 }
-const mapStateToProps = (state) => {
-  return {
-    greeting: state.greeting
-  }
-}
 
-export default connect(mapStateToProps, { setGreeting, changeGreeting })(App);
+
+export default connect(null, greetingActions)(App);
