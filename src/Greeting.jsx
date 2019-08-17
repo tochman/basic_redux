@@ -12,7 +12,7 @@ const Greeting = (props) => {
 }
 const mapStateToProps = (state) => {
   return {
-    greeting: state.greeting
+    greeting: state.helloWorld.greeting
   }
 }
 
