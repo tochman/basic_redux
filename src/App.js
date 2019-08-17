@@ -1,7 +1,8 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react'
+import { Container, Divider } from 'semantic-ui-react'
 import Greeting from './Greeting'
 import GreetingInput from './GreetingInput'
+import QuoteOfTheDay from './QuoteOfTheDay'
 
 
 const App = () => {
@@ -10,6 +11,8 @@ const App = () => {
       <Container>
         <Greeting />
         <GreetingInput />
+        <Divider />
+        <QuoteOfTheDay />
       </Container>
     </>
   )
