@@ -1,12 +1,28 @@
 import React from 'react'
 import { Segment } from 'semantic-ui-react'
+import { connect } from 'react-redux';
 
-const QuoteOfTheDay = () => {
+const QuoteOfTheDay = (props) => {
   return (
     <>
-      <Segment raised>Pellentesque habitant morbi tristique senectus.</Segment>
+      <Segment raised>
+        <i>
+          {props.quote.content}
+        </i>
+        <p>
+          <small>{props.quote.origin}</small>
+        </p>
+      </Segment>
     </>
   )
 }
 
-export default QuoteOfTheDay
+const mapStateToProps = (state) => {
+  return {
+    quote: state.quotes.quote
+  }
+}
+
+
+
+export default connect(mapStateToProps)(QuoteOfTheDay)
