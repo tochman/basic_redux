@@ -9,8 +9,9 @@ import QuoteOfTheDay from './QuoteOfTheDay'
 
 
 const App = (props) => {
-  debugger
-  props.fetchQuote()
+  let { fetchQuote } = props
+  fetchQuote()
+  
   return (
     <>
       <Container>
@@ -30,6 +31,10 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({ type: 'SET_QUOTE', payload: response.data.data })
     }
   }
+}
+
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  return {}
 }
 
 export default connect(null, mapDispatchToProps)(App);

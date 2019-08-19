@@ -22,7 +22,7 @@ const GreetingInput = (props) => {
     </>
   )
 }
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(greetingActions, dispatch)
 }
 
